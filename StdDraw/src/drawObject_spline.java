@@ -61,7 +61,7 @@ public class drawObject_spline implements drawObject_interface {
 
     @Override
     public String toString() {
-        String t = "(";
+        String t = "(spline:";
         for (drawObject_interface i:points
         ) {
             t += i.toString();

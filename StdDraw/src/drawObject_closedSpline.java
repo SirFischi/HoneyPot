@@ -26,6 +26,16 @@ public class drawObject_closedSpline extends drawObject_spline {
         }
     }
 
+    @Override
+    public String toString() {
+        String t = "(closedspline:";
+        for (drawObject_interface i:points
+        ) {
+            t += i.toString();
+        }
+        return t + ")";
+    }
+
     private boolean[][] convertToArray() {
         boolean[][] boolArray = new boolean[(int)this.width()][(int)this.height()];
 
