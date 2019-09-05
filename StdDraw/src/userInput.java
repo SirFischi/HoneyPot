@@ -1,9 +1,9 @@
 public class userInput {
 
-    public static Circle drawCircle(Point middle) {
-        Circle temp = new Circle(middle, 0.1);
+    public static drawObject_circle drawCircle(drawObject_point middle) {
+        drawObject_circle temp = new drawObject_circle(middle, 0.1);
         while (StdDraw.isMousePressed()) {
-            temp.setRadius(middle.distance(new Point(StdDraw.mouseX(), StdDraw.mouseY())));
+            temp.setRadius(middle.distance(new drawObject_point(StdDraw.mouseX(), StdDraw.mouseY())));
         }
         return temp;
     }
