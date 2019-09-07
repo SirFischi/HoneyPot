@@ -8,8 +8,7 @@ public class fileIO_txtReader {
     public static drawObject_list loadFromTxt(String path) {
         try {
             List<String> allLines = Files.readAllLines(Paths.get(path));
-            drawObject_list list = stringToDrawObject(allLines);
-            return list;
+            return stringToDrawObject(allLines);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -20,31 +19,33 @@ public class fileIO_txtReader {
         drawObject_list list = new drawObject_list();
         for (String line:allLines
              ) {
-            String type = line.substring(1, line.indexOf(':'));
-            switch (type) {
-                case "point":
-                    list.add(stringToPoint(line));
-                    break;
-                case "line":
-                    list.add(stringToLine(line));
-                    break;
-                case "circle":
-                    list.add(stringToCircle(line));
-                    break;
-                case "rectangle":
-                    list.add(stringToRectangle(line));
-                    break;
-                case "square":
-                    list.add(stringToSquare(line));
-                    break;
-                case "spline":
-                    list.add(stringToSpline(line));
-                    break;
-                case "closedspline":
-                    list.add(stringToClosedSpline(line));
-                    break;
-                default:
-                    System.out.println("No fitting drawObject found!");
+            if (line.contains(":") && line.charAt(0) != ':') {
+                String type = line.substring(1, line.indexOf(':'));
+                switch (type) {
+                    case "point":
+                        list.add(stringToPoint(line));
+                        break;
+                    case "line":
+                        list.add(stringToLine(line));
+                        break;
+                    case "circle":
+                        list.add(stringToCircle(line));
+                        break;
+                    case "rectangle":
+                        list.add(stringToRectangle(line));
+                        break;
+                    case "square":
+                        list.add(stringToSquare(line));
+                        break;
+                    case "spline":
+                        list.add(stringToSpline(line));
+                        break;
+                    case "closedspline":
+                        list.add(stringToClosedSpline(line));
+                        break;
+                    default:
+                        System.out.println("No fitting drawObject found!");
+                }
             }
         }
         return list;
