@@ -1,4 +1,4 @@
-public class drawObject_circle implements drawObject_interface { //hhhhhaaaaqqqqq
+public class drawObject_circle implements drawObject_interface {
     private drawObject_point middle;
     private double radius;
 
